@@ -20,7 +20,6 @@ window.addEventListener("scroll", function(){
        document.getElementById("nav-header").classList.remove("header-in");
       }
 
-      codersLIst();
    }
    lastScrollTop = currentScroll;
 }, false);
@@ -30,30 +29,50 @@ function Coders(img, nombre){
   this.img = img;
   this.nombre = nombre;
 }
-
+var codersImgNombre = [];
+var nombres = ["Fiorella Quispe","Lourdes Vilchez","Rossmery Maldonado","Yessenia Burga",
+               "Miriam Mendoza","Elizabeth Condori","Arantza Burga","Grecia Rayme",
+               "Janine Vega","Rosario Felix","Daguiana Revoredo","Jenny Velasquez",
+               "Nadia Cuadros","Michell More","Marilu Llamocca","Mariel Garcia",
+               "Fiorella Cisneros","Geraldine Chauca","Yelitza Rivera","Stephanie Hiyagon",
+               "Emma Tapia","Danna Franco","Flor Retamozo","Nathaly Pacheco",
+               "Ericka Vidal","Katherine Ortega","Brilly Majuan","Flor Tello",
+               "Leslie Avendaño", "Cindy Mendoza","Annia Flores","Betsi Loayza",
+               "Aida Sulca","Milagros Gutierrez","Nakarid Jave","Angie Cóndor",
+               "Maia Rojas","Ariana Cabana","Flor Condori","Mitch Rodríguez",
+               "Naomi Villanueva","Mari Castillo","Miriam Peralta","Karin Alejo",
+               "Liliana Peña","Ruth Salvador","Maribel Sevilla","Wendy Reyes",
+               "Cinthia Stark","Maria Grecia Cutipa","Ana Durand","Glisse Jorge",
+               "Neiza Nuñez","Sandra Solorzano"];
 
 function codersLIst(){
-  var objCoders = [];
-    for(i=0; i<document.imges.length; i++){
-      var r = document.images.src = "assets/img/images/students/"+i+".jpg";
-      var coder = new Coders(r,)
-      objCoders.push("coder")
-      var li = document.createElement("li");
-      var divContImag = document.createElement("div");
-      var figure = document.createElement("figure");
-      var img = document.createElement("img");
-      var rutaImg = "assets/img/images/students/"+i+".png";
-      var figcaption = document.createElement("figcaption");
-      var span = document.createElement("span");
-      var ul = getElementById("ul");
+    for(var i=1; i<nombres.length; i++){
+        var li = document.createElement("li");
+        li.classList.add("box")
+        var divContImag = document.createElement("div");
+        divContImag.classList.add("grid")
+        var figure = document.createElement("figure");
+        var img = document.createElement("img");
+        img.classList.add("img-box");
+        img.setAttribute("src", "assets/img/images/students/"+i+".png");
+        var figcaption = document.createElement("figcaption");
+        figcaption.classList.add("center")
+        var span = document.createElement("span");
+        var textSpan = document.createTextNode(nombres[i-1]);
+        var ul = document.getElementById("ul");
 
-      li.appendChild(divContImag);
-      divContImag.appendChild(figure);
-      figure.appendChild(img);
-      figure.appendChild(figcaption);
-      figcaption.appendChild(span);
-      ul.appendChild(li);
-      img.setAttribute("src", rutaImg);
-
+        li.appendChild(divContImag);
+        divContImag.appendChild(figure);
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+        figcaption.appendChild(span);
+        span.appendChild(textSpan)
+        ul.appendChild(li);
+      //  var Ocoders = new objCoders(img.src, nombres[i-1]);
+        //codersImgNombre.push(Ocders);
   }
 }
+window.addEventListener("load", function(){
+  codersLIst();
+
+})
